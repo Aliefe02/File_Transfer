@@ -1,7 +1,7 @@
 import threading
 import socket
 import time
-
+ 
 HEADER = 64
 PORT = 4321
 SERVER = 'localhost' #socket.gethostbyname(socket.gethostname())

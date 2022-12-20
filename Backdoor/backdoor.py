@@ -6,7 +6,7 @@ import keyboard
 import pyautogui
 import cv2 as cv
 import time
-
+ 
 #   Hide inside .jpg    https://www.youtube.com/watch?v=jcLYtfNhAMQ 
 
 HEADER = 64
