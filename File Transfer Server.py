@@ -4,7 +4,6 @@ import subprocess
 import time
 import threading
 
-
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 FORMAT = 'utf-8'
