@@ -4,6 +4,7 @@ import subprocess
 import time
 import threading
 
+
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 FORMAT = 'utf-8'
@@ -45,10 +46,9 @@ def send(msg):
         conn.send(send_length)
         conn.send(message)
     except Exception as e:
-        print('[ERROR SENDING MESSAGE!')
+        print('[ERROR SENDING MESSAGE!]')
         print(e)
 
-send('[CONNECTION ONLINE!]')
 
 def recv():
     global connected
@@ -90,6 +90,8 @@ def incoming():
             recvfile(ifilesize, ifilename)
     except Exception as e:
         print(e)
+
+send('[CONNECTION ONLINE!]')
 
 incoming_file = threading.Thread(target=incoming,args=())
 incoming_file.start()
