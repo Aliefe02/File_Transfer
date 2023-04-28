@@ -7,16 +7,15 @@ import subprocess
 #[WinError 10054]
 # except socket.gaierror, e:
 #     if e.errno != 10054:
-
+ 
 FORMAT = 'utf-8'
 HEADER = 64
-SERVER =  input('Enter server ip > ')
+SERVER = input('Enter server ip > ')
 PORT = int(input('Enter server port > '))
 ADDR = (SERVER, PORT)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(ADDR)
-
 
 connected = True
 
@@ -36,7 +35,6 @@ def recv():
         else:
             print(e)
 
-print(recv())
 
 def recvfile(size, name):
     try:
@@ -70,6 +68,7 @@ def send(msg):
         send_length = str(msg_length).encode(FORMAT)
         send_length += b' ' * (HEADER - len(send_length))
         client.send(send_length)
+        client.send(message)
     except Exception as e:
         print(e)
         print('[ERROR SENDING MESSAGE!]')
@@ -105,6 +104,8 @@ def sending():
                 print(data.stdout)
         except Exception as e:
             print(e)
+
+print(recv())
 
 sending_file = threading.Thread(target=sending,args=())
 sending_file.start()
